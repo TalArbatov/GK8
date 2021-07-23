@@ -35,7 +35,6 @@ const Entry = () => {
 
   return (
     <div className="wrapper">
-      <p1>Hello world!</p1>
       <TransactionList transactions={ transactions }/>
     </div>
   )

@@ -6,11 +6,18 @@ const TransactionListItem = ({
   toAddress,
   value,
   confiramtions,
-  hash
+  hash,
+  key
 }) => {
   return (
     <div>
-      <p>Hello world { timestamp }</p>
+      <p>Trn number: { key }</p>
+      <p>timestamp: { timestamp }</p>
+      <p>from: { fromAddress }</p>
+      <p>to: { toAddress }</p>
+      <p>amount: { value }</p>
+      <p>confirmations: { confiramtions }</p>
+      <p>hash: { hash }</p>
     </div>
   )
 };

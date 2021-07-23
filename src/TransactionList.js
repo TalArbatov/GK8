@@ -9,6 +9,11 @@ const TransactionList = ({
     <TransactionListItem 
       key={ index }
       timestamp={ trn.timeStamp }
+      from={ trn.from }
+      to={ trn.to }
+      value={ trn.value }
+      confiramtions={ trn.confiramtions }
+      hash={ trn.hash }
       />
   ))
   return transactionList;
