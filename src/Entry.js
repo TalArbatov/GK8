@@ -56,7 +56,7 @@ const Entry = () => {
 
 
 
-  const generate = () => {
+  const search = () => {
     sendRequest();
   }
 
@@ -65,9 +65,11 @@ const Entry = () => {
   }
 
   return (
-    <div className="wrapper">
-      <input type="text" placeholder="Please enter wallet" onChange={ handleChange }/>
-      <button onClick={ generate }>Generate</button>
+    <div className="main">
+      <div className="search">
+        <input className="searchTerm" type="text" placeholder="Please enter wallet" onChange={ handleChange }/>
+        <button className="searchButton" onClick={ search }>Search</button>
+      </div>
       <TransactionList transactions={ transactions }/>
       <p style={ { color: 'red' } }>{ error.active && error.message }</p>
     </div>
