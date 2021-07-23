@@ -50,7 +50,7 @@ const Entry = () => {
   return (
     <div className="main">
       <div className="search">
-        <input className="searchTerm" type="text" placeholder="Please enter wallet" onChange={ handleChange }/>
+        <input className="searchTerm" type="text" placeholder="Enter Ethereum address" onChange={ handleChange }/>
         <button className="searchButton" onClick={ sendRequest }>Search</button>
       </div>
       <TransactionList transactions={ transactions }/>
