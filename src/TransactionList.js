@@ -12,7 +12,7 @@ const TransactionList = ({
       from={ trn.from }
       to={ trn.to }
       value={ trn.value }
-      confiramtions={ trn.confiramtions }
+      confirmations={ trn.confirmations }
       hash={ trn.hash }
       />
   ))

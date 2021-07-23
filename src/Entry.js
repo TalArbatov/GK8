@@ -33,7 +33,9 @@ const Entry = () => {
             console.log(`BODY: ${JSON.parse(chunk).result}`)
             const result = JSON.parse(chunk).result;
             if (!Array.isArray(result)) throw 'Invalid address';
-            setTransactions(JSON.parse(chunk).result);
+
+            
+            setTransactions(result.slice(0, config.maxTransactions));
             setError({
               active: false,
               message: ''
@@ -51,6 +53,8 @@ const Entry = () => {
     request.setHeader('Content-Type', 'application/json');
     request.end();
   }
+
+
 
   const generate = () => {
     sendRequest();

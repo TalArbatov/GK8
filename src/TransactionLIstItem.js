@@ -2,21 +2,19 @@ import React from 'react';
 
 const TransactionListItem = ({
   timestamp,
-  fromAddress,
-  toAddress,
+  from,
+  to,
   value,
-  confiramtions,
+  confirmations,
   hash,
-  key
 }) => {
   return (
     <div>
-      <p>Trn number: { key }</p>
       <p>timestamp: { timestamp }</p>
-      <p>from: { fromAddress }</p>
-      <p>to: { toAddress }</p>
+      <p>from: { from }</p>
+      <p>to: { to }</p>
       <p>amount: { value }</p>
-      <p>confirmations: { confiramtions }</p>
+      <p>confirmations: { confirmations }</p>
       <p>hash: { hash }</p>
     </div>
   )

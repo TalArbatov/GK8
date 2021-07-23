@@ -1,8 +1,9 @@
 module.exports = {
   api: {
     key: 'MZ4UW331HNIZZGB7SFM7N319NU4XQTICHP',
-    url: (address, key) => `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${key}`
-  }
+    url: (address, key) => `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${key}`,
+  },
+  maxTransactions: 10000
 };
 
 // 0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7
