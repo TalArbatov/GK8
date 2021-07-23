@@ -8,13 +8,13 @@ const net = electron.remote.net;
 const Entry = () => {
   const [address, setAddress] = useState('');
   const [transactions, setTransactions] = useState([]);
-
-  // useEffect(() => {
-  //   sendRequest();
-  // }, [])
+  const [error, setError] = useState({
+    active: false,
+    message: ''
+  })
 
   const sendRequest = () => {
-    const { address, key } = config.api;
+    const { key } = config.api;
     const url = config.api.url(address, key);
     console.log('tal test', url);
 
@@ -29,8 +29,23 @@ const Entry = () => {
       // console.log(`STATUS: ${response.statusCode}`);
       // console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
       response.on('data', (chunk) => {
-          console.log(`BODY: ${JSON.parse(chunk).result}`)
-          setTransactions(JSON.parse(chunk).result);
+          try {
+            console.log(`BODY: ${JSON.parse(chunk).result}`)
+            const result = JSON.parse(chunk).result;
+            if (!Array.isArray(result)) throw 'Invalid address';
+            setTransactions(JSON.parse(chunk).result);
+            setError({
+              active: false,
+              message: ''
+            })
+          } catch(e) {
+            console.log('not an array');
+            setError({
+              active: true,
+              message: 'Invalid address'
+            })
+          }
+          
       });
     });
     request.setHeader('Content-Type', 'application/json');
@@ -50,6 +65,7 @@ const Entry = () => {
       <input type="text" placeholder="Please enter wallet" onChange={ handleChange }/>
       <button onClick={ generate }>Generate</button>
       <TransactionList transactions={ transactions }/>
+      <p style={ { color: 'red' } }>{ error.active && error.message }</p>
     </div>
   )
 };
