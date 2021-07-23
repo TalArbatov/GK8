@@ -33,18 +33,19 @@ const Entry = () => {
             console.log(`BODY: ${JSON.parse(chunk).result}`)
             const result = JSON.parse(chunk).result;
             if (!Array.isArray(result)) throw 'Invalid address';
-
-            
-            setTransactions(result.slice(0, config.maxTransactions));
-            setError({
-              active: false,
-              message: ''
-            })
+            else if (Array.isArray(result) && result.length === 0) throw 'No transactions'
+            else {
+              setTransactions(result.slice(0, config.maxTransactions));
+              setError({
+                active: false,
+                message: ''
+              });
+          }
           } catch(e) {
-            console.log('not an array');
+            console.log('not an array', e);
             setError({
               active: true,
-              message: 'Invalid address'
+              message: e
             })
           }
           
