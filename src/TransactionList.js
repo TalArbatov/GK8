@@ -14,6 +14,7 @@ const TransactionList = ({
       value={ trn.value }
       confirmations={ trn.confirmations }
       hash={ trn.hash }
+      transactionIndex={ trn.transactionIndex }
       />
   ))
   return transactionList;

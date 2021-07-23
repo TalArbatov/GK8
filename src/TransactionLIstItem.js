@@ -7,6 +7,7 @@ const TransactionListItem = ({
   value,
   confirmations,
   hash,
+  transactionIndex
 }) => {
 
   const convertDate = timestamp => {
@@ -33,12 +34,13 @@ const TransactionListItem = ({
   }
   return (
     <div className="tranaction-list-item">
-      <p>timestamp: { convertDate(timestamp) }</p>
-      <p>from: { from }</p>
-      <p>to: { to }</p>
-      <p>amount: { value }</p>
-      <p>confirmations: { confirmations }</p>
-      <p>hash: { hash }</p>
+      <p className="transaction-index">#{ transactionIndex }</p>
+      <p><b>timestamp:</b> { convertDate(timestamp) }</p>
+      <p><b>from:</b> { from }</p>
+      <p><b>to:</b> { to }</p>
+      <p><b>amount:</b> { value }</p>
+      <p><b>confirmations:</b> { confirmations }</p>
+      <p><b>hash:</b> { hash }</p>
     </div>
   )
 };
