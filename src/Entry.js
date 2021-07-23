@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import config from './config';
+import TransactionList from './TransactionList';
 const electron = window.require("electron")
 
 const net = electron.remote.net;
 
 const Entry = () => {
+  const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     const { address, key } = config.api;
     const url = config.api.url(address, key);
@@ -24,6 +26,7 @@ const Entry = () => {
 
       response.on('data', (chunk) => {
           console.log(`BODY: ${chunk}`)
+          setTransactions(chunk);
       });
   });
     request.setHeader('Content-Type', 'application/json');
@@ -33,6 +36,7 @@ const Entry = () => {
   return (
     <div className="wrapper">
       <p1>Hello world!</p1>
+      <TransactionList />
     </div>
   )
 };
