@@ -79,6 +79,7 @@
     "style-loader": "^3.2.1"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
