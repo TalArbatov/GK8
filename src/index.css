@@ -54,3 +54,7 @@ body {
 .tranaction-list-item p:not(:first-child) {
   margin: 7px;
 }
+
+.error-message {
+  color: red;
+}
